@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="FJuego.cpp" />
+    <ClCompile Include="Entid.cpp" />
+    <ClCompile Include="Jueg.cpp" />
+    <ClCompile Include="Jugad1.cpp" />
+    <ClCompile Include="Jugad2.cpp" />
+    <ClCompile Include="MyMenu.cpp" />
+    <ClCompile Include="Enemigo.cpp" />
+    <ClCompile Include="Obstaculo.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FJuego.h" />
+    <ClInclude Include="Entid.h" />
+    <ClInclude Include="Jueg.h" />
+    <ClInclude Include="Jugad1.h" />
+    <ClInclude Include="Jugad2.h" />
+    <ClInclude Include="MyMenu.h" />
+    <ClInclude Include="Enemigo.h" />
+    <ClInclude Include="Obstaculo.h" />
+  </ItemGroup>
+</Project>

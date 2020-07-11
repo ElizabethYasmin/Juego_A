@@ -1,0 +1,6 @@
+﻿  FJuego.cpp
+  MyMenu.cpp
+  Generando código...
+  Enemigo.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
+Enemigo.obj : warning LNK4248: símbolo (token) de typeref sin resolver (0100000B) para 'Directions'; no se puede ejecutar la imagen
+  Vjuego.vcxproj -> C:\Users\acer\source\repos\Vjuego\Debug\Vjuego.exe

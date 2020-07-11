@@ -1,0 +1,4 @@
+C:\Users\acer\source\repos\Vjuego\Vjuego\Debug\Vjuego.vcxprojAssemblyReference.cache
+C:\Users\acer\source\repos\Vjuego\Vjuego\Debug\Vjuego.FJuego.resources
+C:\Users\acer\source\repos\Vjuego\Vjuego\Debug\Vjuego.vcxproj.GenerateResource.cache
+C:\Users\acer\source\repos\Vjuego\Vjuego\Debug\Vjuego.MyMenu.resources
