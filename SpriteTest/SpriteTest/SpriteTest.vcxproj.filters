@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="Entidad.cpp">
+      <Filter>Clases\Entidad</Filter>
+    </ClCompile>
+    <ClCompile Include="Paloma.cpp">
+      <Filter>Clases\Paloma</Filter>
+    </ClCompile>
+    <ClCompile Include="Gato.cpp">
+      <Filter>Clases\Gato</Filter>
+    </ClCompile>
+    <ClCompile Include="Juego.cpp" />
+    <ClCompile Include="Bala.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MyForm.h" />
+    <ClInclude Include="Entidad.h">
+      <Filter>Clases\Entidad</Filter>
+    </ClInclude>
+    <ClInclude Include="Paloma.h">
+      <Filter>Clases\Paloma</Filter>
+    </ClInclude>
+    <ClInclude Include="Gato.h">
+      <Filter>Clases\Gato</Filter>
+    </ClInclude>
+    <ClInclude Include="Juego.h" />
+    <ClInclude Include="Bala.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Clases">
+      <UniqueIdentifier>{2fd25e05-edb9-40a3-8a98-26bc8c77167a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Clases\Entidad">
+      <UniqueIdentifier>{27d0fd9b-9132-4222-a38d-cfba5b9800f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Clases\Paloma">
+      <UniqueIdentifier>{7d475e19-8690-4eea-93b7-8a542a46f5d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Clases\Gato">
+      <UniqueIdentifier>{a4e1dbbe-2dfc-410b-8ee9-fdd06d7adc4c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
