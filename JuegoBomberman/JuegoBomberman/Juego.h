@@ -18,7 +18,7 @@ namespace JuegoBomberman {
 	{
 	
 
-	private:
+	public:
 		Controladora* oControladora = new Controladora();
 		Bitmap^ bmpSolido = gcnew Bitmap("MATERIALES\\bmpSolido.png");
 		Bitmap^ bmpDestruible = gcnew Bitmap("MATERIALES\\bmpDestruible.png");
@@ -28,10 +28,9 @@ namespace JuegoBomberman {
 		Bitmap^bmpBomba= gcnew Bitmap("MATERIALES\\bomba.png");
 		Bitmap^ bmpExplosion= gcnew Bitmap("MATERIALES\\explosion.png");
 		
-	public:
 		Juego(void)
 		{
-			
+		
 			InitializeComponent();
 			//
 			//TODO: agregar código de constructor aquí
