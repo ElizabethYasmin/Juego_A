@@ -5,6 +5,8 @@
 
 #define filas 15
 #define columnas 17
+
+
 #include <ctime>
 #include<stdlib.h>
 
@@ -29,7 +31,7 @@ public:
 		}
 
 
-		for (int i = 0;i < filas;i++) {  //		ADMINISTRADORA , SOLICITO PERMISO PARA DEPURAR POR FAVOR --___---____----____-----____----___----____--____--_____--__---___
+		for (int i = 0;i < filas;i++) {  //		
 
 			for (int j = 0;j < columnas;j++) {
 
@@ -90,6 +92,16 @@ public:
 			Y += 50;
 		}
 	}
+	/*
+	// funcion de Prueba - >  Funcion ---> transformar los bloques al tocar jugador 
+	void trasnform_base(Graphics^g , Bitmap^ bmpSolido , Bitmap^ bmpDestruible)
+	{
+		int x = 0 , y  = 0  ,z = 0;
+		if()
+	}
+	*/
+
+
 	int** getmatriz() {
 		return matriz;
 	}

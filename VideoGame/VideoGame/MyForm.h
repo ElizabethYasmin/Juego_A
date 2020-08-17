@@ -8,6 +8,7 @@ namespace VideoGame {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Media;
 
 	/// <summary>
 	/// Resumen de MyForm
@@ -15,14 +16,17 @@ namespace VideoGame {
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	private:
+		//SoundPlayer^ MusicaN;
 		Controladora* oControladora = new Controladora();
 		Bitmap^ bmpSolido = gcnew Bitmap("MATERIALES\\bmpSolido.png");
 		Bitmap^ bmpDestruible = gcnew Bitmap("MATERIALES\\bmpDestruible.png");
-		Bitmap^ bmpSuelo = gcnew Bitmap("MATERIALES\\bmpSuelo.png");
+		Bitmap^ bmpSuelo = gcnew Bitmap("MATERIALES\\bmpSuel.png");
 		//declaramos nuestra variable de lo que es el juegador 
 		Bitmap^ bmpJugador = gcnew Bitmap("MATERIALES\\pika.png");
-		Bitmap^ bmpBomba = gcnew Bitmap("MATERIALES\\bomba.png");
+		Bitmap^ bmpCaja = gcnew Bitmap("MATERIALES\\caja.png");
 		Bitmap^ bmpExplosion = gcnew Bitmap("MATERIALES\\explosion.png");
+
+		Bitmap^ bmpEnemigo = gcnew Bitmap("MATERIALES\\bmpEnemigo.png"); 
 	public:
 		MyForm(void)
 		{
@@ -30,9 +34,17 @@ namespace VideoGame {
 			//
 			//TODO: agregar código de constructor aquí
 			//
+
+			//QUITAR EL FONDO EN LA POSICION DE COLOR..
 			bmpJugador->MakeTransparent(bmpJugador->GetPixel(0, 0));
-			bmpBomba->MakeTransparent(bmpBomba->GetPixel(0, 0));
+
+
+			bmpCaja->MakeTransparent(bmpCaja->GetPixel(0, 0));
+
+
 			bmpExplosion->MakeTransparent(bmpExplosion->GetPixel(0, 0));
+
+			bmpEnemigo->MakeTransparent(bmpEnemigo->GetPixel(0, 0));
 		}
 
 
@@ -77,7 +89,7 @@ namespace VideoGame {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 261);
+			this->ClientSize = System::Drawing::Size(862, 749);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
@@ -87,19 +99,32 @@ namespace VideoGame {
 
 		}
 #pragma endregion
+		/*void Musican() {
+			MusicaN = gcnew SoundPlayer("MATERIALES\\ModoSolitario.war");
+			MusicaN->PlayLooping();
+		}*/
+
+
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		oControladora->CambiarNivel();
 	
 	}
+
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 		Graphics^ g = this->CreateGraphics();
 		BufferedGraphicsContext^ espacio = BufferedGraphicsManager::Current;
 		BufferedGraphics^ buffer = espacio->Allocate(g, this->ClientRectangle);
 
+		/*Musican();*/
 
-		oControladora->dibujar(buffer->Graphics, bmpSuelo, bmpSolido, bmpBomba, bmpExplosion, bmpDestruible, bmpJugador);
+
+		oControladora->dibujar(buffer->Graphics, bmpSuelo, bmpSolido, bmpCaja, bmpExplosion, bmpDestruible, bmpJugador, bmpEnemigo);
 		buffer->Render(g);
 		delete buffer, espacio, g;
+
+		
+
+		
 	}
 	private: System::Void MyForm_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 		switch (e->KeyCode)
@@ -123,13 +148,20 @@ namespace VideoGame {
 	private: System::Void MyForm_KeyUp(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 		switch (e->KeyCode)
 		{
-		/*case Keys::Space:
+		case Keys::Space:
 			oControladora->agregarBomba();
-			break;*/
+			break;
 		default:
 			oControladora->getoJugador()->setDireccion(Direcciones::Ninguna);
 			break;
 		}
 	}
+		   /*
+	private: System::Void trCarga_Tick(System::Object^ sender , System::EventArgs^ e){
+		lblNivel->Text = "Nivel : " + oControladora->getNivel();
+		pbCarga->Increment(10);
+		if
+	}
+	*/
 };
 }

@@ -1,7 +1,6 @@
-#pragma once
+  #pragma once
 using namespace System::Drawing;
 #include "Escenario.h"
-
 enum Direcciones { Arriba, Abajo, Izquierda, Derecha, Ninguna };//ninguna va ser la ultima tecla que presionemos 
 class Jugador
 {
@@ -9,14 +8,14 @@ public:
 
 	Jugador(int x, int y) {
 		//posicion del jugador
-		this->x = x; 
+		this->x = x;
 		this->y = y;
 		//Movimiento del jugador 
 		dx = 0;
 		dy = 0;
 		//Animacion del sprite
-		ancho = 64;
-		alto = 64;
+		ancho = 63;
+		alto = 63;
 		indiceX = 0;
 		indiceY = 0;
 
@@ -29,11 +28,19 @@ public:
 	~Jugador();
 
 
+	Rectangle retornarRectangulo() {
+		return Rectangle(x + dx, y + 30, (ancho - 30), (alto - 30));
+	}
 
 
 
-	int getX() { return x + 2 * 3; }
-	int getY() { return y + 15 * 3 + dy; }
+	int getX() { return x; }
+	int getY() { return y + 30 + dy; }
+
+
+
+
+
 	void setDX(int dx) {
 		this->dx = dx;
 	}
@@ -45,7 +52,7 @@ public:
 
 
 
- 	void setDireccion(Direcciones direccion) {
+	void setDireccion(Direcciones direccion) {
 		this->direccion = direccion;
 	}
 	void ValidarMovimiento(int** matriz) {
@@ -64,25 +71,55 @@ public:
 		}
 	}
 
+	void disminuirVidas() {
+		x = 50;
+		y = 50;
+		vidas--;
+	}
+//------------------------------------------------------------------------------------------------------------------------------------------------------
+	void disminuirvidas(int PuntaIzquierda, int PuntaDerecha, int CentroInicioY, int CentroFinalY, int PuntaSuperior, int PuntaInferior,
+		int CentroInicioX, int CentroFinalX) {
 
+		if (getX() >= PuntaIzquierda && getX() <= PuntaDerecha && getY() >= CentroInicioY && getY() <= CentroFinalY){
+		//Toda la parte de el sprite bomba horizontal
+			x = 50;
+			y = 50;
+			vidas--;
+		}
+		if (getY() >= PuntaSuperior && getY() <= PuntaInferior && getX() >= CentroInicioX && getX() <= CentroFinalX) {
+			//Toda la parte de el sprite bomba vertical
+			x = 50;
+			y = 50;
+			vidas--;
+		}
+}
+
+
+//---------------------------------------------------------------------------------------------------
 
 	void dibujarJugador(Graphics^g, Bitmap^ bmpJugador, int** matriz) {
-		CDI = Rectangle(x + dx, y + 15 , (ancho) , (alto ) );
-		CAA = Rectangle(x , y + 15  + dy, (ancho), (alto) );
+		CDI = Rectangle(x + dx, y + 30 , (ancho-30 ), (alto -30) );
+		CAA = Rectangle(x , y + 30  + dy, (ancho-30), (alto -30 ));
+
 
 		g->DrawRectangle(Pens::Red, CDI);	
 		g->DrawRectangle(Pens::Orange, CAA);
-			
+
 		
 
 		ValidarMovimiento(matriz);//ir antes que el jugador 
+		//thread th1(ValidarMovimiento, matriz);
+
 
 		Rectangle PorcionAUsar = Rectangle(indiceX * ancho, indiceY * alto, ancho, alto);
-		Rectangle Aumento = Rectangle(x, y, ancho*2, alto*2); // valor multiplicativo variable dependiendo de un ajuste de tamañp	
+		Rectangle Aumento = Rectangle(x-14, y, ancho, alto);///Dibujo del jugador --------------------------------
 		g->DrawImage(bmpJugador, Aumento, PorcionAUsar, GraphicsUnit::Pixel);
 		//desplazamiento
 		x += dx;
 		y += dy;
+
+		//th1.join();
+
 	}
 
 
@@ -101,12 +138,12 @@ public:
 			dy = -10;
 			ultima = Arriba;
 			break;
-		case Direcciones::Abajo:
+		case Direcciones::Abajo:     
 			indiceX = 0;
 			if (indiceY >= 1 && indiceY < 3)
 				indiceY++;
 			else
-				indiceY = 1;
+				indiceY = 0;
 			dx = 0;
 			dy = 10;
 			ultima = Abajo;
@@ -134,6 +171,9 @@ public:
 			ultima = Derecha;
 			break;
 
+
+
+
 		case Direcciones::Ninguna:
 			dx = dy = 0;
 			if (ultima == Direcciones::Abajo) {
@@ -153,13 +193,13 @@ public:
 				indiceY = 0;
 			}
 			break; // Hasta ahi todo bien.
-		default: 
+		default:
 			break;
 		}
 
 
-		dibujarJugador(g, bmpJugador, matriz);//para que cada jugador no haga accion en eiempo distinto / Para que no exista problemas en relacion a la variacion al tiempo
-																						//
+			dibujarJugador(g, bmpJugador, matriz);//para que cada jugador no haga accion en eiempo distinto / Para que no exista problemas en relacion a la variacion al tiempo
+		
 
 	}
 private:
@@ -177,5 +217,9 @@ private:
 	Rectangle CDI;
 	Rectangle CAA;
 
+	//conteo de vidas 
+	int vidas;
 };
+
+
 
