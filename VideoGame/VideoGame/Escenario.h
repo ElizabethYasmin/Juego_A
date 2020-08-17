@@ -92,14 +92,7 @@ public:
 			Y += 50;
 		}
 	}
-	/*
-	// funcion de Prueba - >  Funcion ---> transformar los bloques al tocar jugador 
-	void trasnform_base(Graphics^g , Bitmap^ bmpSolido , Bitmap^ bmpDestruible)
-	{
-		int x = 0 , y  = 0  ,z = 0;
-		if()
-	}
-	*/
+
 
 
 	int** getmatriz() {

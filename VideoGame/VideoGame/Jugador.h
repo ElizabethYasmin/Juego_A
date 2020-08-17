@@ -135,7 +135,7 @@ public:
 			else
 				indiceX = 1;
 			dx = 0;
-			dy = -10;
+			dy = -20;
 			ultima = Arriba;
 			break;
 		case Direcciones::Abajo:     
@@ -145,7 +145,7 @@ public:
 			else
 				indiceY = 0;
 			dx = 0;
-			dy = 10;
+			dy = 20;
 			ultima = Abajo;
 			break;
 
@@ -155,7 +155,7 @@ public:
 				indiceX++;
 			else
 				indiceX = 1;
-			dx = -10;
+			dx = -20;
 			dy = 0;
 			ultima = Izquierda;
 			break;																											
@@ -166,7 +166,7 @@ public:
 				indiceX++;
 			else
 				indiceX = 1;
-			dx = 10;
+			dx = 20;
 			dy = 0;
 			ultima = Derecha;
 			break;

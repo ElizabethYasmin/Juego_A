@@ -6,10 +6,12 @@
 #include "ACajas.h"
 #include "Enemigo.h"
 #include "Calavera.h"
+#include "ACajas.h"
 #include <vector>
 #include<iostream>
 #include<memory>
 #include<thread>
+#include "ArrEnemigos.h"
 //#include"ArrEnemigos.h"
 
 class Controladora
@@ -28,7 +30,7 @@ public:
 		cant = 0;
 		//oCalavera = new Calavera * [cant];
 
-		//oArrEnemigos = new ArrEnemigos();
+		oArrEnemigos = new ArrEnemigos();
 			
 
 		nivel = 1;
@@ -40,9 +42,9 @@ public:
 		esce.join();
 	}
 
-	/*void crear_enemigos(){
+	void crear_enemigos(){
 		oArrEnemigos->crearEnemigos();
-	}*/
+	}
 
 	void agregarBomba() {
 		//oArrBombas->crear_una_bomba(oJugador->getX(), oJugador->getY());
@@ -87,12 +89,19 @@ public:
 	}
 
 	void disminuir_Vidas_Por_Enemigo(){
-		if(oJugador->retornarRectangulo().IntersectsWith(oEnemigo->retornarRectangulo())){
-			thread dismiVida(&Jugador::disminuirVidas, oJugador);
-			dismiVida.join();  // al momento de disminuir la vida , se hace un subproceso , para que en el caso de que en el mismo momento la bomba y el enemigo colisionen
+
+		for (int i = 0; i < oArrEnemigos->getarregloEnemigos().size(); i++) {
+			if (oJugador->retornarRectangulo().IntersectsWith(oArrEnemigos->getarregloEnemigos().at(i)->retornarRectangulo())) {
+				thread dismiVida(&Jugador::disminuirVidas, oJugador);
+				dismiVida.join();
+				
+				// al momento de disminuir la vida , se hace un subproceso , para que en el caso de que en el mismo momento la bomba y el enemigo colisionen
 								// con nuestro personaje , se puede ejecutar ambas funciones de darse el caso. , tomando ambos casos de manera mas organizada
-			
+			}
 		}
+
+
+	
 	}
 
 	void dibujar(Graphics^ g, Bitmap^ bmpBase, Bitmap^ bmpSolido, Bitmap^ bmpBomba, Bitmap^ bmpExplosion, Bitmap^ bmpDestruible, Bitmap^ bmpJugador, Bitmap^ bmpEnemigo) {
@@ -112,6 +121,11 @@ public:
 		oEnemigo->dibujar(g, bmpEnemigo,  oEscenario->getmatriz());
 		oEnemigo->animar();
 
+		oArrEnemigos->crearEnemigos();
+		oArrEnemigos->dibujar(g, bmpEnemigo, oEscenario->getmatriz());
+
+
+
 		// Se dividira el trabajo de disminuir la vida por bomba y enemigo en subprocesos distintos
 		// con lo que adicionalemente se brindara un tiempe entre subprocesos al momento desaparecer si nos toca el enemigo o la bomba o ambos 
 
@@ -125,9 +139,9 @@ public:
 	}
 
 	
-	/*void crear_enemigos_y_mejoras(){
+	void crear_enemigos_y_mejoras(){
 		oArrEnemigos->crearEnemigos();
-	}*/
+	}
 	
 
 
@@ -140,9 +154,9 @@ public:
 		return oEnemigo;
 	}
 
-	/*ArrEnemigos  *getoArrEnemigos(){
+	ArrEnemigos  *getoArrEnemigos(){
 		return oArrEnemigos;
-	}*/
+	}
 
 	int getNivel() {
 		return nivel;
@@ -223,7 +237,7 @@ private:
 
 
 	int cant;
-	//ArrEnemigos *oArrEnemigos;
+		ArrEnemigos *oArrEnemigos;
 	int nivel;
 
 };

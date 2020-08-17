@@ -11,8 +11,8 @@ class Enemigo {
 public:
 	Enemigo() {
 		srand(time(NULL));
-		i = rand() % 13 + 1;  // enemigo .. > movimiento aleatorio
-		j = rand() % 13 + 2;
+		i = 1 + rand() % 13 ;  // enemigo .. > movimiento aleatorio
+		j = 1 + rand() % 13 ;
 		x = 715;// ubicacion aleatoria
 		y = 650;
 		dx = 5;
