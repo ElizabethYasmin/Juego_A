@@ -1,0 +1,3 @@
+C:\Users\Rommel\Desktop\Segundo año Cursos\Curso CC2\NUEVA UBICACION PROYECTO\VideoGame\VideoGame\Debug\VideoGame.vcxprojAssemblyReference.cache
+C:\Users\Rommel\Desktop\Segundo año Cursos\Curso CC2\NUEVA UBICACION PROYECTO\VideoGame\VideoGame\Debug\VideoGame.MyForm.resources
+C:\Users\Rommel\Desktop\Segundo año Cursos\Curso CC2\NUEVA UBICACION PROYECTO\VideoGame\VideoGame\Debug\VideoGame.vcxproj.GenerateResource.cache

@@ -9,7 +9,7 @@ class Controladora
 public:
 	Controladora() {
 		oEscenario = new Escenario();
-		oJugador = new Jugador(50, 50);  
+		oJugador = new Jugador(50, 50);   // posicion donde aparecerá el jugador 
 		//oArrBombas = new ArrBombas();
 
 

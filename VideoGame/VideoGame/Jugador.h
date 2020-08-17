@@ -72,13 +72,13 @@ public:
 
 		g->DrawRectangle(Pens::Red, CDI);	
 		g->DrawRectangle(Pens::Orange, CAA);
-
+			
 		
 
 		ValidarMovimiento(matriz);//ir antes que el jugador 
 
 		Rectangle PorcionAUsar = Rectangle(indiceX * ancho, indiceY * alto, ancho, alto);
-		Rectangle Aumento = Rectangle(x, y, ancho, alto);
+		Rectangle Aumento = Rectangle(x, y, ancho*2, alto*2); // valor multiplicativo variable dependiendo de un ajuste de tamañp	
 		g->DrawImage(bmpJugador, Aumento, PorcionAUsar, GraphicsUnit::Pixel);
 		//desplazamiento
 		x += dx;
@@ -153,7 +153,7 @@ public:
 				indiceY = 0;
 			}
 			break; // Hasta ahi todo bien.
-		default:
+		default: 
 			break;
 		}
 
