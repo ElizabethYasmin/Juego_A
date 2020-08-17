@@ -10,12 +10,13 @@ namespace VideoGame {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace System::Media;
 	/// <summary>
 	/// Resumen de MyForm1
 	/// </summary>
 	public ref class MyForm1 : public System::Windows::Forms::Form
 	{
+
 	public:
 		MyForm1(void)
 		{
@@ -76,10 +77,13 @@ namespace VideoGame {
 			this->ResumeLayout(false);
 
 		}
+		
 #pragma endregion
+	
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		MyForm^ Form_contenido = gcnew MyForm();
 		Form_contenido->ShowDialog();
+
 	}
 	};
 }

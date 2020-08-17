@@ -1,2 +1,13 @@
-﻿  MyForm.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
-LINK : fatal error LNK1221: no se puede inferir un subsistema y debe definirse
+﻿  MyForm.cpp
+C:\Users\Rommel\Desktop\Segundo año Cursos\Curso CC2\NUEVA UBICACION PROYECTO\VideoGame\VideoGame\Escenario.h(26,1): warning C4353: se ha utilizado una extensión no estándar: constante 0 como expresión de función. Utilice en su lugar la función intrínseca '__noop'
+C:\Users\Rommel\Desktop\Segundo año Cursos\Curso CC2\NUEVA UBICACION PROYECTO\VideoGame\VideoGame\Escenario.h(26,13): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\Rommel\Desktop\Segundo año Cursos\Curso CC2\NUEVA UBICACION PROYECTO\VideoGame\VideoGame\Enemigo.h(13,13): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\Rommel\Desktop\Segundo año Cursos\Curso CC2\NUEVA UBICACION PROYECTO\VideoGame\VideoGame\Calavera.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  MyForm1.cpp
+C:\Users\Rommel\Desktop\Segundo año Cursos\Curso CC2\NUEVA UBICACION PROYECTO\VideoGame\VideoGame\Escenario.h(26,1): warning C4353: se ha utilizado una extensión no estándar: constante 0 como expresión de función. Utilice en su lugar la función intrínseca '__noop'
+C:\Users\Rommel\Desktop\Segundo año Cursos\Curso CC2\NUEVA UBICACION PROYECTO\VideoGame\VideoGame\Escenario.h(26,13): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\Rommel\Desktop\Segundo año Cursos\Curso CC2\NUEVA UBICACION PROYECTO\VideoGame\VideoGame\Enemigo.h(13,13): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\Rommel\Desktop\Segundo año Cursos\Curso CC2\NUEVA UBICACION PROYECTO\VideoGame\VideoGame\Calavera.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  Generando código...
+  MyForm.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
+  VideoGame.vcxproj -> C:\Users\Rommel\Desktop\Segundo año Cursos\Curso CC2\NUEVA UBICACION PROYECTO\VideoGame\x64\Debug\VideoGame.exe

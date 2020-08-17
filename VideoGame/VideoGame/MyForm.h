@@ -16,7 +16,7 @@ namespace VideoGame {
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	private:
-		//SoundPlayer^ MusicaN;
+		SoundPlayer^ Musica;
 		Controladora* oControladora = new Controladora();
 		Bitmap^ bmpSolido = gcnew Bitmap("MATERIALES\\bmpSolido.png");
 		Bitmap^ bmpDestruible = gcnew Bitmap("MATERIALES\\bmpDestruible.png");
@@ -99,14 +99,16 @@ namespace VideoGame {
 
 		}
 #pragma endregion
-		/*void Musican() {
-			MusicaN = gcnew SoundPlayer("MATERIALES\\ModoSolitario.war");
-			MusicaN->PlayLooping();
-		}*/
+		void Musicas() {
+			Musica = gcnew SoundPlayer("MATERIALES\\Audio\\moskau.wav");
+			Musica->PlayLooping();
+		}
 
 
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	
 		oControladora->CambiarNivel();
+		Musicas();
 	
 	}
 
@@ -114,8 +116,8 @@ namespace VideoGame {
 		Graphics^ g = this->CreateGraphics();
 		BufferedGraphicsContext^ espacio = BufferedGraphicsManager::Current;
 		BufferedGraphics^ buffer = espacio->Allocate(g, this->ClientRectangle);
-
-		/*Musican();*/
+		
+		
 
 
 		oControladora->dibujar(buffer->Graphics, bmpSuelo, bmpSolido, bmpCaja, bmpExplosion, bmpDestruible, bmpJugador, bmpEnemigo);
